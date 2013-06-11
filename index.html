@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title> > </title>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <link rel="stylesheet" href="css/jquery.terminal.css">
+
+        <!-- JQuery, and fallback.-->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
+        <script src="js/term/jquery.mousewheel-min.js"></script>
+        <script src="js/term/jquery.terminal-min.js"></script>
+
+        <script src="js/game/game.js"></script>
+
+        <!-- Title. -->
+        <script>
+        $(function(){
+            var title = $("title");
+            var flash = setInterval(function(){
+                (title.text() == ' > ') ? title.text(" > ▊ ") : title.text(' > ');
+            }, 100);
+        });
+        </script>
+
+    </head>
+    <body style="background-color:#2B1B17">
+        <!-- This is where the magic happens. -->
+
+        <p>Hello world! This is HTML5 Boilerplate.</p>
+
+        <div id="console" style="width:800px; height:600px; overflow:hidden; margin:0 auto; background-color:black;"></div>
+
+        <!-- Adds the cmd to the div when done loading. -->
+        <script>
+            var game = new Module.GameEngine;
+            $(function() {
+                $('#console').terminal(function(command, term) {
+                    // Take command.
+                    term.echo(game.play(command));
+                },{
+                    name: 'console',
+                    prompt: '> ',
+                    width: '800px',
+                    clear: false,
+                    greetings: "Advent-err  -  A non-interactive fiction.",
+                });
+            });
+        </script>
+    </body>
+</html>

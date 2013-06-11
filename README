@@ -2,5 +2,5 @@ Advent-err, a non-interactive fiction.
 ---
 
 Written in C++
-Compiled to JavaScipt
+Compiled to JavaScript
 Ran in your browser.
